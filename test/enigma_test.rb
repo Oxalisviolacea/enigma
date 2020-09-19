@@ -11,4 +11,10 @@ class EnigmaTest < Minitest::Test
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
+
+  def test_it_can_make_the_keys_into_a_hash
+    @enigma.stubs(:random_number).returns(2715)
+    expected = ({"A" => 02, "B" => 27, "C" => 71, "D" => 15})
+    assert_equal expected, @enigma.key_hash
+  end
 end
