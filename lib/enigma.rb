@@ -16,4 +16,12 @@ class Enigma
     letter_array = ("A".."D").to_a
     Hash[letter_array.zip(number_array)]
   end
+
+  def date
+    Date.today.strftime("%m%d%y").to_i
+  end
+
+  def offset_squared
+    date ** 2
+  end
 end
