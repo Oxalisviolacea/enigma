@@ -28,4 +28,11 @@ class EnigmaTest < Minitest::Test
     expected = ({"A" => 1, "B" => 0, "C" => 2, "D" => 5})
     assert_equal expected, @enigma.offset_hash
   end
+
+  def test_it_can_merge_the_keys_and_offsets_hashes
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+    expected = ({"A" => 3, "B" => 27, "C" => 73, "D" => 20})
+    assert_equal expected, @enigma.merge_keys_and_offsets
+  end
 end
