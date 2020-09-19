@@ -37,4 +37,8 @@ class Enigma
       key_value + offset_value
     end
   end
+
+  def alphabet
+    ("a".."z").to_a << " "
+  end
 end
