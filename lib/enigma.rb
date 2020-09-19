@@ -24,4 +24,11 @@ class Enigma
   def offset_squared
     date ** 2
   end
+
+  def offset_hash
+    number_str_array = offset_squared.to_s[-4..-1].split("")
+    number_array = number_str_array.map {|number| number.to_i}
+    letter_array = ("A".. "D").to_a
+    Hash[letter_array.zip(number_array)]
+  end
 end

@@ -22,4 +22,10 @@ class EnigmaTest < Minitest::Test
     @enigma.stubs(:date).returns(40895)
     assert_equal 1672401025, @enigma.offset_squared
   end
+
+  def test_it_can_create_a_hash_of_offsets
+    @enigma.stubs(:date).returns(40895)
+    expected = ({"A" => 1, "B" => 0, "C" => 2, "D" => 5})
+    assert_equal expected, @enigma.offset_hash
+  end
 end
