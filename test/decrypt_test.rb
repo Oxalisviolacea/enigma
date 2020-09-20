@@ -33,4 +33,12 @@ class DecryptTest < Minitest::Test
     expected = ({"A" => 3, "B" => 27, "C" => 73, "D" => 20})
     assert_equal expected, @decrypt.keys_and_offsets
   end
+
+  def test_it_can_format_input
+    expected = ["w", "h", "x", "t", "t", "u", "a", "w", "n", " ", "u", "k",
+      "r", "w", "f", "t", "i", "o", "p", "t", "m", "u", "e", "i", "v", " ",
+      "g", "o", "h", "r", "s", "m", "k", "e", "s", "e", "d", "z", "q", "t",
+      "g", "o", "z", "."]
+      assert_equal expected, @decrypt.format_input
+    end
 end

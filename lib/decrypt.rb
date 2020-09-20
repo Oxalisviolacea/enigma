@@ -38,4 +38,8 @@ class Decrypt
       key_value + offset_value
     end
   end
+
+  def format_input
+    @ciphertext.downcase.chars
+  end
 end
