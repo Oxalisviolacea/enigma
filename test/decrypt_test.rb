@@ -59,4 +59,17 @@ class DecryptTest < Minitest::Test
     expected = [[".", 43, 3]]
     assert_equal expected, @decrypt.find_special_chars
   end
+
+  def test_it_make_an_array_without_special_chars
+    expected = [["w", 0, 0], ["h", 1, 1], ["x", 2, 2], ["t", 3, 3],
+    ["t", 4, 0], ["u", 5, 1], ["a", 6, 2], ["w", 7, 3], ["n", 8, 0],
+    [" ", 9, 1], ["u", 10, 2], ["k", 11, 3], ["r", 12, 0], ["w", 13, 1],
+    ["f", 14, 2], ["t", 15, 3], ["i", 16, 0], ["o", 17, 1], ["p", 18, 2],
+    ["t", 19, 3], ["m", 20, 0], ["u", 21, 1], ["e", 22, 2], ["i", 23, 3],
+    ["v", 24, 0], [" ", 25, 1], ["g", 26, 2], ["o", 27, 3], ["h", 28, 0],
+    ["r", 29, 1], ["s", 30, 2], ["m", 31, 3], ["k", 32, 0], ["e", 33, 1],
+    ["s", 34, 2], ["e", 35, 3], ["d", 36, 0], ["z", 37, 1], ["q", 38, 2],
+    ["t", 39, 3], ["g", 40, 0], ["o", 41, 1], ["z", 42, 2]]
+    assert_equal expected, @decrypt.array_without_special_chars
+  end
 end

@@ -54,4 +54,10 @@ class Decrypt
       !alphabet.include?(array[0])
     end
   end
+
+  def array_without_special_chars
+    input_index.find_all do |array|
+      alphabet.include?(array[0])
+    end
+  end
 end
