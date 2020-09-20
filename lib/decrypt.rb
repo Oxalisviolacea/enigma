@@ -106,4 +106,8 @@ class Decrypt
       shift.insert(array[1], array[0])
     end
   end
+
+  def join_shift
+    insert_special_chars.join
+  end
 end

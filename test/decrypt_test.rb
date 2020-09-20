@@ -127,4 +127,9 @@ class DecryptTest < Minitest::Test
       "o", "g", "."]
     assert_equal expected, @decrypt.insert_special_chars
   end
+
+  def test_it_can_join_the_shift_with_special_chars
+    expected = "the quick brown fox jumps over the lazy dog."
+    assert_equal expected, @decrypt.join_shift
+  end
 end
