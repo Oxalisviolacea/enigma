@@ -109,5 +109,17 @@ class EnigmaTest < Minitest::Test
       "n"=>"g", "o"=>"h", "p"=>"i", "q"=>"j", "r"=>"k", "s"=>"l", "t"=>"m",
       "u"=>"n", "v"=>"o", "w"=>"p", "x"=>"q", "y"=>"r", "z"=>"s", " "=>"t"}
     assert_equal expected, @enigma.d_shift
-    end
+  end
+
+  def test_it_can_rotate_the_shift_the_letters
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = ["w", "h", "x", "t", "t", "u", "a", "w", "n", " ", "u", "k",
+      "r", "w", "f", "t", "i", "o", "p", "t", "m", "u", "e", "i", "v", " ",
+      "g", "o", "h", "r", "s", "m", "k", "e", "s", "e", "d", "z", "q", "t",
+      "g", "o", "z"]
+
+    assert_equal expected, @enigma.shift
+  end
 end
