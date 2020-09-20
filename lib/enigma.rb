@@ -1,96 +1,63 @@
-require 'date'
-
 class Enigma
-  attr_reader :input
+  attr_reader :message, :ciphertext
   def initialize
-    @input = "The quick brown fox jumps over the lazy dog."
+    @message = message
+    @ciphertext = ciphertext
   end
 
-  def random_number
-    rand(99999)
+  # def read_message
+  #   file = File.open(ARGV[0], "r")
+  #   @message = file.read
+  #   file.close
+  # end
+
+  def encrypt(message, key, date)
+    read_message
+    Encrypt.new(message, key, date)
+    encrypt_output
+    @ciphertext = @message.encrypt.message
+    write_ciphertext
   end
 
-  def key_hash
-    rand_str = random_number.to_s.rjust(5, '0')
-    number_str_array = [rand_str[0..1], rand_str[1..2], rand_str[2..3], rand_str[3..4]]
-    number_array = number_str_array.map {|number| number.to_i}
-    letter_array = ("A".."D").to_a
-    Hash[letter_array.zip(number_array)]
+  def ecrypt_output
+    encrypt_hash = {
+    encryption: "#{encrypt.message}",
+    key: "#{encypt.key}",
+    date: "#{encrypt.date}"
+    }
+    puts encryption_hash
   end
 
-  def date
-    Date.today.strftime("%m%d%y").to_i
+  def write_ciphertext
+    writer = File.open(ARGV[1], "w")
+    @ciphertext = writer.write(@message)
+    writer.close
   end
 
-  def offset_squared
-    date ** 2
+  def read_ciphertext
+    file = File.open(ARGV[0], "r")
+    @ciphertext = file.read
+    file.close
   end
 
-  def offset_hash
-    number_str_array = offset_squared.to_s[-4..-1].split("")
-    number_array = number_str_array.map {|number| number.to_i}
-    letter_array = ("A".. "D").to_a
-    Hash[letter_array.zip(number_array)]
+  def decrypt(ciphertext, key, date)
+    read_ciphertext
+    Decrypt.new(ciphertext, key, date)
+    decrypt_output
   end
 
-  def keys_and_offsets
-    key_hash.merge!(offset_hash) do |key, key_value, offset_value|
-      key_value + offset_value
-    end
+  def decrypt_output
+    decryption_hash = {
+    decryption: "#{decrypt.message}",
+    key: "#{decrypt.key}",
+    date: "#{decrypt.date}"
+    }
+    puts decryption_hash
   end
 
-  def format_input
-    @input.delete(".").downcase.chars
-    #other characters should be coded as itself
-  end
-
-  def input_index
-    format_input.map.with_index do |letter, index|
-      [letter, index, index % 4]
-    end
-  end
-
-  def alphabet
-    ("a".."z").to_a << " "
-  end
-
-  def a_shift
-    shift = keys_and_offsets["A"]
-    Hash[alphabet.zip(alphabet.rotate(shift))]
-  end
-
-  def b_shift
-    shift = keys_and_offsets["B"]
-    Hash[alphabet.zip(alphabet.rotate(shift))]
-  end
-
-  def c_shift
-    shift = keys_and_offsets["C"]
-    Hash[alphabet.zip(alphabet.rotate(shift))]
-  end
-
-  def d_shift
-    shift = keys_and_offsets["D"]
-    Hash[alphabet.zip(alphabet.rotate(shift))]
-  end
-
-  def shift
-    shift_array = []
-    input_index.each do |input_array|
-      if input_array[2] == 0
-        shift_array << a_shift.fetch(input_array[0])
-      elsif input_array[2] == 1
-        shift_array << b_shift.fetch(input_array[0])
-      elsif input_array[2] == 2
-        shift_array << c_shift.fetch(input_array[0])
-      elsif input_array[2] == 3
-        shift_array << d_shift.fetch(input_array[0])
-      end
-    end
-    shift_array
-  end
-
-  def join_shift
-    shift.join
+  def write_message
+    writer = File.open(ARGV[1], "w")
+    @message = writer.write(@ciphertext)
+    writer.close
   end
 end
