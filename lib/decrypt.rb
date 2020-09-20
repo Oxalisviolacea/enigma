@@ -42,4 +42,10 @@ class Decrypt
   def format_input
     @ciphertext.downcase.chars
   end
+
+  def input_index
+    format_input.map.with_index do |letter, index|
+      [letter, index, index % 4]
+    end
+  end
 end
