@@ -72,4 +72,11 @@ class DecryptTest < Minitest::Test
     ["t", 39, 3], ["g", 40, 0], ["o", 41, 1], ["z", 42, 2]]
     assert_equal expected, @decrypt.array_without_special_chars
   end
+
+  def test_it_can_make_an_array_with_the_alphabet
+    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+      "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+      "y", "z", " "]
+      assert_equal expected, @decrypt.alphabet
+    end
 end

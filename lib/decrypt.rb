@@ -60,4 +60,8 @@ class Decrypt
       alphabet.include?(array[0])
     end
   end
+
+  def alphabet
+    ("a".."z").to_a << " "
+  end
 end
