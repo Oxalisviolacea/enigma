@@ -32,4 +32,10 @@ class Decrypt
     letter_array = ("A".. "D").to_a
     Hash[letter_array.zip(number_array)]
   end
+
+  def keys_and_offsets
+    key_hash.merge!(offset_hash) do |key, key_value, offset_value|
+      key_value + offset_value
+    end
+  end
 end

@@ -28,4 +28,9 @@ class DecryptTest < Minitest::Test
     expected = ({"A" => 1, "B" => 0, "C" => 2, "D" => 5})
     assert_equal expected, @decrypt.offset_hash
   end
+
+  def test_it_can_merge_the_keys_and_offsets_hashes
+    expected = ({"A" => 3, "B" => 27, "C" => 73, "D" => 20})
+    assert_equal expected, @decrypt.keys_and_offsets
+  end
 end
