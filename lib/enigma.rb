@@ -43,4 +43,10 @@ class Enigma
     @input.delete(".").downcase.chars
     #other characters should be coded as itself
   end
+
+  def input_index
+    format_input.map.with_index do |letter, index|
+      [letter, index, index % 4]
+    end
+  end
 end
