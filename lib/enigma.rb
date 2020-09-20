@@ -1,6 +1,7 @@
 require 'date'
 
 class Enigma
+  attr_reader :input
   def initialize
     @input = "The quick brown fox jumps over the lazy dog."
   end
@@ -32,13 +33,14 @@ class Enigma
     Hash[letter_array.zip(number_array)]
   end
 
-  def merge_keys_and_offsets
+  def keys_and_offsets
     key_hash.merge!(offset_hash) do |key, key_value, offset_value|
       key_value + offset_value
     end
   end
 
-  def alphabet
-    ("a".."z").to_a << " "
+  def format_input
+    @input.delete(".").downcase.chars
+    #other characters should be coded as itself
   end
 end

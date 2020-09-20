@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'mocha/minitest'
-require './lib/enigma'
+require './test/test_helper'
 
 class EnigmaTest < Minitest::Test
   def setup
@@ -37,13 +34,15 @@ class EnigmaTest < Minitest::Test
     @enigma.stubs(:date).returns(40895)
 
     expected = ({"A" => 3, "B" => 27, "C" => 73, "D" => 20})
-    assert_equal expected, @enigma.merge_keys_and_offsets
+    assert_equal expected, @enigma.keys_and_offsets
   end
 
-  def test_it_can_create_the_letters
-    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
-      "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
-      "y", "z", " "]
-      assert_equal expected, @enigma.alphabet
+  def test_it_can_format_input
+    @enigma.stubs(:input).returns("The quick brown fox jumps over the lazy dog.")
+    expected = ["t", "h", "e", " ", "q", "u", "i", "c", "k", " ", "b", "r",
+      "o", "w", "n", " ", "f", "o", "x", " ", "j", "u", "m", "p", "s", " ", "o",
+      "v", "e", "r", " ", "t", "h", "e", " ", "l", "a", "z", "y", " ", "d",
+      "o", "g"]
+    assert_equal expected, @enigma.format_input
   end
 end
