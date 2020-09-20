@@ -122,4 +122,13 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected, @enigma.shift
   end
+
+  def test_it_can_join_the_shift
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = "whxttuawn ukrwftioptmueiv gohrsmkesedzqtgoz"
+
+    assert_equal expected, @enigma.join_shift
+  end
 end

@@ -89,4 +89,8 @@ class Enigma
     end
     shift_array
   end
+
+  def join_shift
+    shift.join
+  end
 end
