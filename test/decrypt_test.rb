@@ -23,4 +23,9 @@ class DecryptTest < Minitest::Test
   def test_it_can_square_the_date
     assert_equal 1672401025, @decrypt.offset_squared
   end
+
+  def test_it_can_create_a_hash_of_offsets
+    expected = ({"A" => 1, "B" => 0, "C" => 2, "D" => 5})
+    assert_equal expected, @decrypt.offset_hash
+  end
 end
