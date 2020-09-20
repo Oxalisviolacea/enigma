@@ -64,4 +64,24 @@ class Decrypt
   def alphabet
     ("a".."z").to_a << " "
   end
+
+  def a_shift
+    shift = keys_and_offsets["A"]
+    Hash[alphabet.zip(alphabet.rotate(shift))].invert
+  end
+
+  def b_shift
+    shift = keys_and_offsets["B"]
+    Hash[alphabet.zip(alphabet.rotate(shift))].invert
+  end
+
+  def c_shift
+    shift = keys_and_offsets["C"]
+    Hash[alphabet.zip(alphabet.rotate(shift))].invert
+  end
+
+  def d_shift
+    shift = keys_and_offsets["D"]
+    Hash[alphabet.zip(alphabet.rotate(shift))].invert
+  end
 end

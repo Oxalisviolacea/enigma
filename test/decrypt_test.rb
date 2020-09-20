@@ -78,5 +78,37 @@ class DecryptTest < Minitest::Test
       "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
       "y", "z", " "]
       assert_equal expected, @decrypt.alphabet
-    end
+  end
+
+  def test_it_can_create_an_A_shift_hash
+    expected = {"d"=>"a", "e"=>"b", "f"=>"c", "g"=>"d", "h"=>"e", "i"=>"f",
+      "j"=>"g", "k"=>"h", "l"=>"i", "m"=>"j", "n"=>"k", "o"=>"l", "p"=>"m",
+      "q"=>"n", "r"=>"o", "s"=>"p", "t"=>"q", "u"=>"r", "v"=>"s", "w"=>"t",
+      "x"=>"u", "y"=>"v", "z"=>"w", " "=>"x", "a"=>"y", "b"=>"z", "c"=>" "}
+    assert_equal expected, @decrypt.a_shift
+  end
+
+  def test_it_can_create_an_B_shift_hash
+    expected = {"a"=>"a", "b"=>"b", "c"=>"c", "d"=>"d", "e"=>"e", "f"=>"f",
+      "g"=>"g", "h"=>"h", "i"=>"i", "j"=>"j", "k"=>"k", "l"=>"l", "m"=>"m",
+      "n"=>"n", "o"=>"o", "p"=>"p", "q"=>"q", "r"=>"r", "s"=>"s", "t"=>"t",
+      "u"=>"u", "v"=>"v", "w"=>"w", "x"=>"x", "y"=>"y", "z"=>"z", " "=>" "}
+    assert_equal expected, @decrypt.b_shift
+  end
+
+  def test_it_can_create_an_C_shift_hash
+    expected = {"t"=>"a", "u"=>"b", "v"=>"c", "w"=>"d", "x"=>"e", "y"=>"f",
+      "z"=>"g", " "=>"h", "a"=>"i", "b"=>"j", "c"=>"k", "d"=>"l", "e"=>"m",
+      "f"=>"n", "g"=>"o", "h"=>"p", "i"=>"q", "j"=>"r", "k"=>"s", "l"=>"t",
+      "m"=>"u", "n"=>"v", "o"=>"w", "p"=>"x", "q"=>"y", "r"=>"z", "s"=>" "}
+    assert_equal expected, @decrypt.c_shift
+  end
+
+  def test_it_can_create_an_D_shift_hash
+    expected = {"u"=>"a", "v"=>"b", "w"=>"c", "x"=>"d", "y"=>"e", "z"=>"f",
+      " "=>"g", "a"=>"h", "b"=>"i", "c"=>"j", "d"=>"k", "e"=>"l", "f"=>"m",
+      "g"=>"n", "h"=>"o", "i"=>"p", "j"=>"q", "k"=>"r", "l"=>"s", "m"=>"t",
+      "n"=>"u", "o"=>"v", "p"=>"w", "q"=>"x", "r"=>"y", "s"=>"z", "t"=>" "}
+    assert_equal expected, @decrypt.d_shift
+  end
 end
