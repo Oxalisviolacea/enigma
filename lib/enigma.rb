@@ -49,4 +49,8 @@ class Enigma
       [letter, index, index % 4]
     end
   end
+
+  def alphabet
+    ("a".."z").to_a << " "
+  end
 end

@@ -59,4 +59,11 @@ class EnigmaTest < Minitest::Test
 
     assert_equal expected, @enigma.input_index
   end
+
+  def test_it_can_make_an_array_with_the_alphabet
+    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x",
+                "y", "z", " "]
+    assert_equal expected, @enigma.alphabet
+  end
 end
