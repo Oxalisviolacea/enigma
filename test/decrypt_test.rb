@@ -19,4 +19,8 @@ class DecryptTest < Minitest::Test
     expected = ({"A" => 02, "B" => 27, "C" => 71, "D" => 15})
     assert_equal expected, @decrypt.key_hash
   end
+
+  def test_it_can_square_the_date
+    assert_equal 1672401025, @decrypt.offset_squared
+  end
 end
