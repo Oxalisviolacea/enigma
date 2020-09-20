@@ -111,4 +111,13 @@ class DecryptTest < Minitest::Test
       "n"=>"u", "o"=>"v", "p"=>"w", "q"=>"x", "r"=>"y", "s"=>"z", "t"=>" "}
     assert_equal expected, @decrypt.d_shift
   end
+
+  def test_it_can_rotate_the_shift_the_letters
+    expected = ["t", "h", "e", " ", "q", "u", "i", "c", "k", " ", "b", "r",
+      "o", "w", "n", " ", "f", "o", "x", " ", "j", "u", "m", "p", "s", " ", "o",
+      "v", "e", "r", " ", "t", "h", "e", " ", "l", "a", "z", "y", " ", "d",
+      "o", "g"]
+
+    assert_equal expected, @decrypt.shift
+  end
 end
