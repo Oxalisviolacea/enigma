@@ -66,4 +66,48 @@ class EnigmaTest < Minitest::Test
                 "y", "z", " "]
     assert_equal expected, @enigma.alphabet
   end
+
+  def test_it_can_create_an_A_shift_hash
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = {"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i",
+      "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p",
+      "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w",
+      "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" ", "y"=>"a", "z"=>"b", " "=>"c"}
+    assert_equal expected, @enigma.a_shift
+  end
+
+  def test_it_can_create_an_B_shift_hash
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = {"a"=>"a", "b"=>"b", "c"=>"c", "d"=>"d", "e"=>"e", "f"=>"f",
+      "g"=>"g", "h"=>"h", "i"=>"i", "j"=>"j", "k"=>"k", "l"=>"l", "m"=>"m",
+      "n"=>"n", "o"=>"o", "p"=>"p", "q"=>"q", "r"=>"r", "s"=>"s", "t"=>"t",
+      "u"=>"u", "v"=>"v", "w"=>"w", "x"=>"x", "y"=>"y", "z"=>"z", " "=>" "}
+    assert_equal expected, @enigma.b_shift
+  end
+
+  def test_it_can_create_an_C_shift_hash
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = {"a"=>"t", "b"=>"u", "c"=>"v", "d"=>"w", "e"=>"x", "f"=>"y",
+      "g"=>"z", "h"=>" ", "i"=>"a", "j"=>"b", "k"=>"c", "l"=>"d", "m"=>"e",
+      "n"=>"f", "o"=>"g", "p"=>"h", "q"=>"i", "r"=>"j", "s"=>"k", "t"=>"l",
+      "u"=>"m", "v"=>"n", "w"=>"o", "x"=>"p", "y"=>"q", "z"=>"r", " "=>"s"}
+    assert_equal expected, @enigma.c_shift
+  end
+
+  def test_it_can_create_an_D_shift_hash
+    @enigma.stubs(:random_number).returns(2715)
+    @enigma.stubs(:date).returns(40895)
+
+    expected = {"a"=>"u", "b"=>"v", "c"=>"w", "d"=>"x", "e"=>"y", "f"=>"z",
+      "g"=>" ", "h"=>"a", "i"=>"b", "j"=>"c", "k"=>"d", "l"=>"e", "m"=>"f",
+      "n"=>"g", "o"=>"h", "p"=>"i", "q"=>"j", "r"=>"k", "s"=>"l", "t"=>"m",
+      "u"=>"n", "v"=>"o", "w"=>"p", "x"=>"q", "y"=>"r", "z"=>"s", " "=>"t"}
+    assert_equal expected, @enigma.d_shift
+    end
 end
