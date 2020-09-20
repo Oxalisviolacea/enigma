@@ -100,4 +100,10 @@ class Decrypt
     end
     shift_array
   end
+
+  def insert_special_chars
+    find_special_chars.flat_map do |array|
+      shift.insert(array[1], array[0])
+    end
+  end
 end
