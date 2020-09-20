@@ -54,4 +54,9 @@ class DecryptTest < Minitest::Test
     ["t", 39, 3], ["g", 40, 0], ["o", 41, 1], ["z", 42, 2], [".", 43, 3]]
     assert_equal expected, @decrypt.input_index
   end
+
+  def test_it_can_find_all_special_characters
+    expected = [[".", 43, 3]]
+    assert_equal expected, @decrypt.find_special_chars
+  end
 end

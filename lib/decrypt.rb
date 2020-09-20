@@ -48,4 +48,10 @@ class Decrypt
       [letter, index, index % 4]
     end
   end
+
+  def find_special_chars
+    input_index.find_all do |array|
+      !alphabet.include?(array[0])
+    end
+  end
 end
