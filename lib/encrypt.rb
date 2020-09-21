@@ -24,7 +24,7 @@ class Encrypt
   end
 
   def todays_date
-    Date.today.strftime("%m%d%y")
+    enigma.today
   end
 
   def offset_squared

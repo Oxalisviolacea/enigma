@@ -7,6 +7,7 @@ class Decrypt
     @ciphertext = ciphertext
     @key = key
     @date = date
+    @enigma = Enigma.new
   end
 
   def key_hash
@@ -19,7 +20,7 @@ class Decrypt
   end
 
   def todays_date
-    Date.today.strftime("%m%d%y")
+    enigma.today
   end
 
   def offset_squared
