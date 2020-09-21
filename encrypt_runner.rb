@@ -1,4 +1,3 @@
-require 'date'
 require './lib/enigma'
 require './lib/encrypt'
 
@@ -8,8 +7,14 @@ message = incoming_text.chomp
 handle.close
 
 enigma = Enigma.new
-ciphertext = enigma.encrypt(message, "2715", "40895")
+if ARGV[2] == nil
+  ARGV[2] = enigma.random_key
+end
+if ARGV[3] == nil
+  ARGV[3] = enigma.today
+end
 
+ciphertext = enigma.encrypt(message, ARGV[2], ARGV[3])
 writer = File.open(ARGV[1], "w")
 writer.write(ciphertext)
 

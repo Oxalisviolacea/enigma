@@ -1,5 +1,3 @@
-require 'date'
-
 class Decrypt
   attr_reader :ciphertext, :key, :date
 
@@ -17,10 +15,6 @@ class Decrypt
     number_array = number_str_array.map {|number| number.to_i}
     letter_array = ("A".."D").to_a
     Hash[letter_array.zip(number_array)]
-  end
-
-  def todays_date
-    enigma.today
   end
 
   def offset_squared

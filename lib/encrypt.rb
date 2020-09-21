@@ -1,5 +1,3 @@
-require 'date'
-
 class Encrypt
   attr_reader :message, :key, :date
 
@@ -23,12 +21,8 @@ class Encrypt
     Hash[letter_array.zip(number_array)]
   end
 
-  def todays_date
-    enigma.today
-  end
-
   def offset_squared
-    date.to_i ** 2
+    @date.to_i ** 2
   end
 
   def offset_hash
@@ -45,7 +39,7 @@ class Encrypt
   end
 
   def format_input
-    message.downcase.chars
+    @message.downcase.chars
   end
 
   def input_index
