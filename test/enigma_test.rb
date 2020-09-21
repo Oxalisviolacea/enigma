@@ -18,7 +18,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_decrypt_a_message
-    expected = {decryption: "The quick brown fox jumps over the lazy dog.",
+    expected = {decryption: "the quick brown fox jumps over the lazy dog.",
                 key: "2715",
                 date: "40895"}
     assert_equal expected, @enigma.decrypt(

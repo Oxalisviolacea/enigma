@@ -3,14 +3,15 @@ require 'date'
 class Encrypt
   attr_reader :message, :key, :date
 
-  def initialize(message, key = self.random_number, date = self.todays_date)
+  def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
+    @enigma = Enigma.new
   end
 
   def random_number
-    @key = rand(99999).to_s.rjust(5, '0')
+    enigma.random_key
   end
 
   def key_hash
@@ -44,7 +45,7 @@ class Encrypt
   end
 
   def format_input
-    @message.downcase.chars
+    message.downcase.chars
   end
 
   def input_index
