@@ -130,6 +130,6 @@ class EncryptTest < Minitest::Test
 
   def test_it_can_join_the_shift_with_special_chars
     expected = "whxttuawn ukrwftioptmueiv gohrsmkesedzqtgoz."
-    assert_equal expected, @encrypt.join_shift
+    assert_equal expected, @encrypt.ciphertext
   end
 end

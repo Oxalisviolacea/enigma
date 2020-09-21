@@ -111,7 +111,7 @@ class Encrypt
     end
   end
 
-  def join_shift
+  def ciphertext
     insert_special_chars.join
   end
 end
