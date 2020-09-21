@@ -3,7 +3,7 @@ require 'date'
 class Encrypt
   attr_reader :message, :key, :date
 
-  def initialize(message, key = self.random_number, date = self.todays_date)
+  def initialize(message, key, date)
     @message = message
     @key = key
     @date = date
@@ -27,7 +27,7 @@ class Encrypt
   end
 
   def offset_squared
-    date.to_i ** 2
+    todays_date.to_i ** 2
   end
 
   def offset_hash
@@ -92,13 +92,13 @@ class Encrypt
   def shift
     shift_array = []
     array_without_special_chars.each do |input_array|
-      if input_array[2] == 0
+      if input_array[2] == 0 #A shift
         shift_array << a_shift.fetch(input_array[0])
-      elsif input_array[2] == 1
+      elsif input_array[2] == 1 #B shift
         shift_array << b_shift.fetch(input_array[0])
-      elsif input_array[2] == 2
+      elsif input_array[2] == 2 #C shift
         shift_array << c_shift.fetch(input_array[0])
-      elsif input_array[2] == 3
+      elsif input_array[2] == 3 #D shift
         shift_array << d_shift.fetch(input_array[0])
       end
     end
@@ -111,7 +111,7 @@ class Encrypt
     end
   end
 
-  def join_shift
+  def ciphertext
     insert_special_chars.join
   end
 end
