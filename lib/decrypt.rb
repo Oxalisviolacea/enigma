@@ -107,7 +107,7 @@ class Decrypt
     end
   end
 
-  def join_shift
+  def message
     insert_special_chars.join
   end
 end
