@@ -112,7 +112,7 @@ class EncryptTest < Minitest::Test
     assert_equal expected, @encrypt.d_shift
   end
 
-  def test_it_can__shift_the_letters
+  def test_it_can_rotate_the_shift_the_letters
     expected = ["w", "h", "x", "t", "t", "u", "a", "w", "n", " ", "u", "k",
       "r", "w", "f", "t", "i", "o", "p", "t", "m", "u", "e", "i", "v", " ",
       "g", "o", "h", "r", "s", "m", "k", "e", "s", "e", "d", "z", "q", "t",
@@ -128,8 +128,8 @@ class EncryptTest < Minitest::Test
     assert_equal expected, @encrypt.insert_special_chars
   end
 
-  def test_it_can_make_the_encrypted_message
+  def test_it_can_join_the_shift_with_special_chars
     expected = "whxttuawn ukrwftioptmueiv gohrsmkesedzqtgoz."
-    assert_equal expected, @encrypt.ciphertext
+    assert_equal expected, @encrypt.join_shift
   end
 end
