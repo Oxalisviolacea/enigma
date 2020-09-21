@@ -3,7 +3,7 @@ require 'date'
 class Decrypt
   attr_reader :ciphertext, :key, :date
 
-  def initialize(ciphertext, key, date = self.todays_date)
+  def initialize(ciphertext, key, date)
     @ciphertext = ciphertext
     @key = key
     @date = date
@@ -24,7 +24,7 @@ class Decrypt
   end
 
   def offset_squared
-    date.to_i ** 2
+    @date.to_i ** 2
   end
 
   def offset_hash
