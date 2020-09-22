@@ -9,6 +9,13 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
+  def test_it_can_find_the_date
+    assert_equal 6, @enigma.today.length
+  end
+
+  def test_it_can_generate_a_random_key
+    assert_equal 5, @enigma.random_key.length
+  end
   def test_it_can_encrypt_a_message
     expected = {encryption: "whxttuawn ukrwftioptmueiv gohrsmkesedzqtgoz.",
                 key: "2715",
